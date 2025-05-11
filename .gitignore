@@ -133,3 +133,6 @@ audio_output/
 
 # macOS
 .DS_Store 
+
+# Cursor
+.cursor/mcp.json

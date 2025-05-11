@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Development Workflow
+
+## Setup
+1. Create a virtual environment: `python -m venv venv`
+2. Activate the environment: 
+   - Linux/macOS: `source venv/bin/activate`
+   - Windows: `venv\Scripts\activate`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Create a `.env` file with your OpenAI API key: `OPENAI_API_KEY='your_key_here'`
+
+## Using the Makefile
+The [Makefile](mdc:Makefile) provides convenient commands:
+
+- `make install` - Set up the virtual environment and install dependencies
+- `make run` - Run the CLI tool in interactive mode
+- `make runp phrase="Your phrase"` - Run the CLI tool with a specific phrase
+- `make clean` - Remove virtual environment and generated files
+
+## Running the Web Application
+1. Ensure your virtual environment is active
+2. Run `python run.py` to start the Flask development server
+3. Access the web interface at `http://localhost:5000`
+
+## Development Practices
+- Keep the CLI and web components modular and independent
+- Store sensitive information in the `.env` file (not in version control)
+- Follow the existing directory structure for new features
+- Update requirements.txt when adding new dependencies
+
+## Database Management
+The application uses SQLite with SQLAlchemy. The database file is [korean_learner.db](mdc:korean_learner.db).

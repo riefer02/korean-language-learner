@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Web Application Structure
+
+## Overview
+The web application is built using Flask with SQLAlchemy for database interactions and Flask-WTF for form handling.
+
+## Main Components
+
+### Templates
+The `/app/templates` directory contains all HTML templates using Jinja2 templating engine.
+
+### Static Assets
+The `/app/static` directory is organized as follows:
+- `/css` - Stylesheets
+- `/js` - JavaScript files
+- `/audio` - Audio files for the web interface
+
+### Services
+The `/app/services` directory contains backend service modules:
+- Translation services using OpenAI
+- Audio generation services
+- User management services
+
+### Utilities
+The `/app/utils` directory contains helper functions and utility modules.
+
+## Database
+The application uses SQLite via SQLAlchemy with models defined in the app structure.
+
+## Routes
+Flask routes are defined within the app package to handle different URL endpoints.
+
+## Configuration
+Application configuration is managed through [config.py](mdc:config.py) and environment variables in [.env](mdc:.env).

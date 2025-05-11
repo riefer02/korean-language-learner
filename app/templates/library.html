@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %} - Phrase Library{% endblock %} {%
+block content %}
+<div class="library">
+  <h2>Your Phrase Library</h2>
+
+  {% if phrases.items %}
+  <div id="phrases-container">
+    {% for phrase in phrases.items %}
+    <div class="phrase-card" data-id="{{ phrase.id }}">
+      <div class="phrase-english">{{ phrase.english_text }}</div>
+      <div class="phrase-korean">{{ phrase.korean_text }}</div>
+      <div class="audio-player">
+        <audio src="{{ phrase.audio_path }}" controls preload="none"></audio>
+        <button class="repeat-btn" aria-label="Repeat audio">Repeat</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if phrases.pages > 1 %}
+  <div class="pagination">
+    {% if phrases.has_prev %}
+    <a href="{{ url_for('main.library', page=phrases.prev_num) }}" class="btn"
+      >&laquo; Previous</a
+    >
+    {% endif %}
+
+    <span class="current-page"
+      >Page {{ phrases.page }} of {{ phrases.pages }}</span
+    >
+
+    {% if phrases.has_next %}
+    <a href="{{ url_for('main.library', page=phrases.next_num) }}" class="btn"
+      >Next &raquo;</a
+    >
+    {% endif %}
+  </div>
+  {% endif %} {% else %}
+  <div class="empty-library">
+    <p>
+      Your library is empty.
+      <a href="{{ url_for('main.index') }}">Add your first phrase</a> to get
+      started.
+    </p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %} {% block scripts %}
+<script src="{{ url_for('static', filename='js/library.js') }}"></script>
+{% endblock %}
