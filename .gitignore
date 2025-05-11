@@ -136,3 +136,7 @@ audio_output/
 
 # Cursor
 .cursor/mcp.json
+
+# SQLite database
+*.db
+korean_learner.db

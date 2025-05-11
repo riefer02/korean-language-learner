@@ -64,6 +64,15 @@ An application for learning Korean that includes both a command-line interface a
    pip install -r requirements.txt
    ```
 
+4. **Initialize the database:**
+   ```bash
+   flask init-db
+   ```
+   Or using the Makefile:
+   ```bash
+   make init-db
+   ```
+
 ## Usage
 
 ### CLI Tool
